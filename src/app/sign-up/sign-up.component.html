@@ -1,15 +1,16 @@
-<form (ngSubmit)="Save()">
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
   <label for="fullName">Full Name:</label>
-  <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName">
+  <input type="text" id="fullName" formControlName="fullName">
 
   <label for="role">Role:</label>
-  <input type="text" id="role" [(ngModel)]="role" name="role">
+  <input type="text" id="role" formControlName="role">
 
   <label for="email">Email:</label>
-  <input type="email" id="email" [(ngModel)]="email" name="email">
+  <input type="email" id="email" formControlName="email">
+
 
   <label for="password">Password:</label>
-  <input type="password" id="password" [(ngModel)]="password" name="password">
+  <input type="password" id="password" formControlName="password">
 
-  <button type="submit">Register</button>
+  <button type="submit" [disabled]="signUpForm.invalid">Register</button>
 </form>
